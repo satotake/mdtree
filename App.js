@@ -1,15 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>this is test</Text>
-      </View>
-    );
-  }
-}
+import {
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -19,3 +13,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+const App = () => (
+  <View style={styles.container}>
+    <Text>this is test</Text>
+  </View>
+);
+
+module.exports = App;
