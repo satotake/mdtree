@@ -1,4 +1,4 @@
-import Markdown from 'commonmark';
+import { markdown } from 'markdown';
 
 export const SAMPLEMD = {
   REQUEST: 'SAMPLEMD_REQUEST',
@@ -13,8 +13,7 @@ const sampleMD = {
   receive: (url, rawText) => ({
     type: SAMPLEMD.RECEIVE,
     receivedAt: Date.now(),
-    ast: Markdown.Parser().parse(rawText),
-    rawText,
+    ast: markdown.parse(rawText),
     url,
   }),
 };
