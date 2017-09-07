@@ -1,0 +1,15 @@
+box: node:8
+build:
+  steps:
+    - script:
+        name: Init Yarn
+        code: |
+          # ref: http://blog.wercker.com/cached-yarn-install-on-wercker
+          npm install -g yarn
+          export YARN_CACHE=$WERCKER_CACHE_DIR/yarn
+          HOME=$YARN_CACHE yarn
+
+    - script:
+        name: Test
+        code: |
+          yarn test-ci
