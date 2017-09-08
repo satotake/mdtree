@@ -39,7 +39,7 @@ heading
       },
     };
     expect(actual.root)
-      .to.have.members(expected.root);
+      .toMatchObject(expected.root);
   });
   it('H1 only', () => {
     const raw = '# H1';
@@ -60,7 +60,7 @@ heading
       },
     };
     expect(actual.root)
-      .to.have.members(expected.root);
+      .toMatchObject(expected.root);
   });
   it('para, H1', () => {
     const raw = `
@@ -90,7 +90,7 @@ paragraph
       },
     };
     expect(actual.root)
-      .to.have.members(expected.root);
+      .toMatchObject(expected.root);
   });
 
   it('H1 only without text', () => {
@@ -112,7 +112,7 @@ paragraph
       },
     };
     expect(actual.root)
-      .to.have.members(expected.root);
+      .toMatchObject(expected.root);
   });
   it('H3 only', () => {
     const raw = '### h3';
@@ -140,7 +140,7 @@ paragraph
       },
     };
     expect(actual.root)
-      .to.have.members(expected.root);
+      .toMatchObject(expected.root);
   });
   it('H1, H2, H3', () => {
     const raw = `
@@ -184,7 +184,7 @@ paragraph
       },
     };
     expect(actual.root)
-      .to.have.members(expected.root);
+      .toMatchObject(expected.root);
   });
   it('H1, H2, H2 , H3', () => {
     const raw = `
@@ -237,7 +237,7 @@ paragraph
       },
     };
     expect(actual.root)
-      .to.have.members(expected.root);
+      .toMatchObject(expected.root);
   });
   it('H1, H2, H3, H1, H2', () => {
     const raw = `
@@ -302,7 +302,7 @@ paragraph
       },
     };
     expect(actual.root)
-      .to.have.members(expected.root);
+      .toMatchObject(expected.root);
   });
   it('H1, H2, H3, H2', () => {
     const raw = `
@@ -358,7 +358,7 @@ paragraph
       },
     };
     expect(actual.root)
-      .to.have.members(expected.root);
+      .toMatchObject(expected.root);
   });
   it('H1, H2, H4', () => {
     const raw = `
@@ -405,7 +405,7 @@ paragraph
       },
     };
     expect(actual.root)
-      .to.have.members(expected.root);
+      .toMatchObject(expected.root);
   });
   it('H1 para, H2 para, H3 para', () => {
     const raw = `
@@ -462,7 +462,7 @@ paragraph3
       },
     };
     expect(actual.root)
-      .to.have.members(expected.root);
+      .toMatchObject(expected.root);
   });
 
   /* TODO(markdown-js cannot distinguish header from #header) */
@@ -483,6 +483,6 @@ subheader
     const actual = callFUT(tree);
     const expected = false;
     expect(actual.root)
-      .to.have.members(expected.root);
+      .toMatchObject(expected.root);
   });
 });
