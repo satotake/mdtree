@@ -18,7 +18,7 @@ describe('nestByHeadingLevel', () => {
       },
     };
     expect(actual)
-      .to.deep.have.same.members(expected);
+      .toMatchObject(expected);
   });
   it('no heading', () => {
     const raw = `
