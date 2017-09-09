@@ -4,8 +4,8 @@ import {
 
 import Helpers from './index';
 
-describe('nestByHeadingLevel', () => {
-  const callFUT = Helpers.nestByHeadingLevel;
+describe('nestByHeaderLevel', () => {
+  const callFUT = Helpers.nestByHeaderLevel;
 
   it('empty', () => {
     const raw = '';
