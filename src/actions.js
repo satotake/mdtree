@@ -18,14 +18,12 @@ const sampleMD = {
   }),
 };
 
-const fetchSampleMD = (url) => {
-  return (dispatch) => {
-    dispatch(sampleMD.request(url));
-    return fetch(url)
-      .then(response => response.text())
-      .then(rawText => dispatch(sampleMD.receive(url, rawText)));
-  };
-};
+const fetchSampleMD = url => ((dispatch) => {
+  dispatch(sampleMD.request(url));
+  return fetch(url)
+    .then(response => response.text())
+    .then(rawText => dispatch(sampleMD.receive(url, rawText)));
+});
 
 export default class Actions {
     static fetchSampleMD = fetchSampleMD;
