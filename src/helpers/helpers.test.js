@@ -343,10 +343,7 @@ paragraph
                 }, 'h3'],
               ],
             }],
-          }],
-        }, {
-          level: 1,
-          ch: [{
+          }, {
             level: 2,
             body: [
               ['header', {
@@ -408,7 +405,8 @@ paragraph
       .toMatchObject(expected.root);
   });
   it('H1 para, H2 para, H3 para', () => {
-    const raw = `
+    const raw =
+      `
 # h1
 
 paragraph1
@@ -486,3 +484,4 @@ subheader
       .toMatchObject(expected.root);
   });
 });
+
