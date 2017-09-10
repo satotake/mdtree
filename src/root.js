@@ -1,11 +1,4 @@
 import React from 'react';
-
-import {
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-
 import {
   createStore,
   applyMiddleware,
@@ -23,7 +16,6 @@ import {
 
 import Navi from './containers/Navi';
 import reducers from './reducers';
-import Actions from './actions';
 
 const loggerMiddleware = createLogger();
 
