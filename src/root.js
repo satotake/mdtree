@@ -32,11 +32,6 @@ const store = createStore(reducers, applyMiddleware(
   loggerMiddleware,
 ));
 
-const mdSampleUrl =
-  'https://gist.githubusercontent.com/satotake/8e38e216ce0759eef890ce53457cd1a7/raw/f9d1ced92c913e4a59bd96815764e15ec0edee2a/commonmark_sample.md';
-
-store
-  .dispatch(Actions.fetchSampleMD(mdSampleUrl));
 
 const AppRoot = () => (
   <Provider store={store}>

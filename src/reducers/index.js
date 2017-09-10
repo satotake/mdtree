@@ -27,7 +27,7 @@ function sampleMDReducer(state = {}, action) {
 }
 
 const reducers = combineReducers({
-  sampleMDReducer,
+  md: sampleMDReducer,
   nav,
 });
 
