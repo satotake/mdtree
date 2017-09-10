@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
 
 const Home = ({ buttonTitle, onButtonPress }) => (
   <View style={styles.container}>
-    <Text> home ocreen </Text>
+    <Text> home screen </Text>
     <Button
       title={buttonTitle}
       onPress={() => onButtonPress()}
