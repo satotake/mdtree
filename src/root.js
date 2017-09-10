@@ -21,6 +21,7 @@ import {
   Provider,
 } from 'react-redux';
 
+import Navi from './containers/Navi';
 import reducers from './reducers';
 import Actions from './actions';
 
@@ -37,20 +38,9 @@ const mdSampleUrl =
 store
   .dispatch(Actions.fetchSampleMD(mdSampleUrl));
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-
 const AppRoot = () => (
   <Provider store={store}>
-    <View style={styles.container}>
-      <Text>this is test</Text>
-    </View>
+    <Navi />
   </Provider>
 );
 

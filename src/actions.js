@@ -1,4 +1,5 @@
 import { markdown } from 'markdown';
+import Helpers from './helpers';
 
 export const SAMPLEMD = {
   REQUEST: 'SAMPLEMD_REQUEST',
@@ -12,8 +13,8 @@ const sampleMD = {
   }),
   receive: (url, rawText) => ({
     type: SAMPLEMD.RECEIVE,
-    receivedAt: Date.now(),
     ast: markdown.parse(rawText),
+    tree: Helpers.nestByHeaderLevel(markdown.parse(rawText)),
     url,
   }),
 };
