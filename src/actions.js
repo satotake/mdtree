@@ -26,6 +26,23 @@ const fetchSampleMD = url => ((dispatch) => {
     .then(rawText => dispatch(sampleMD.receive(url, rawText)));
 });
 
+export const NAVI = {
+  HOME: { type: 'NAVI_HOME', routeName: 'Home' },
+  TREE: { type: 'NAVI_TREE', routeName: 'Tree' },
+};
+
+const switchNavi = {
+  home: () => ({
+    type: NAVI.HOME.type,
+    routeName: NAVI.HOME.routeName,
+  }),
+  tree: () => ({
+    type: NAVI.TREE.type,
+    routeName: NAVI.TREE.routeName,
+  }),
+};
+
 export default class Actions {
     static fetchSampleMD = fetchSampleMD;
+    static switchNavi = switchNavi;
 }
