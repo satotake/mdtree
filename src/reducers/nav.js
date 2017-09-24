@@ -1,30 +1,31 @@
 import { NavigationActions } from 'react-navigation';
 
-import { NAVI } from '../actions';
-import { AppNavigator } from '../containers/Navi';
+import { STACK_NAVI, TAB_NAVI } from '../actions';
+import { AppNavigator } from '../navigations/StackNavi';
+import { AppTabNavi } from '../navigations/TabNavi';
 
-const firstAction = AppNavigator.router.getActionForPathAndParams(NAVI.HOME.routeName);
+const stackFirstAction = AppNavigator.router.getActionForPathAndParams(STACK_NAVI.HOME.routeName);
 // const tempNavState = AppNavigator.router.getStateForAction(firstAction);
-// const secondAction = AppNavigator.router.getActionForPathAndParams(NAVI.TREE.routeName);
+// const secondAction = AppNavigator.router.getActionForPathAndParams(STACK_NAVI.TREE.routeName);
 
-const initialNavState = AppNavigator.router.getStateForAction(
-  firstAction,
+const stackInitialNavState = AppNavigator.router.getStateForAction(
+  stackFirstAction,
 );
 // const initialNavState = AppNavigator.router.getStateForAction(
 //   secondAction,
 //   tempNavState,
 // );
 
-function naviReducer(state = initialNavState, action) {
+export function stackNav(state = stackInitialNavState, action) {
   switch (action.type) {
-    case NAVI.TREE.type:
+    case STACK_NAVI.TREE.type:
       return AppNavigator.router.getStateForAction(
-        NavigationActions.navigate({ routeName: NAVI.TREE.routeName }),
+        NavigationActions.navigate({ routeName: STACK_NAVI.TREE.routeName }),
         state,
       );
-    case NAVI.HOME.type:
+    case STACK_NAVI.HOME.type:
       return AppNavigator.router.getStateForAction(
-        NavigationActions.navigate({ routeName: NAVI.HOME.routeName }),
+        NavigationActions.navigate({ routeName: STACK_NAVI.HOME.routeName }),
         state,
       );
     default:
@@ -32,4 +33,28 @@ function naviReducer(state = initialNavState, action) {
   }
 }
 
-export default naviReducer;
+const tabFirstAction = AppTabNavi.router.getActionForPathAndParams(TAB_NAVI.LOCAL.routeName);
+const tabInitialNavState = AppTabNavi.router.getStateForAction(
+  tabFirstAction,
+);
+
+export function tabNav(state = tabInitialNavState, action) {
+  switch (action.type) {
+    case TAB_NAVI.REMOTE.type:
+      return AppTabNavi.router.getStateForAction(
+        NavigationActions.navigate({ routeName: TAB_NAVI.REMOTE.routeName }),
+        state,
+      );
+    case TAB_NAVI.LOCAL.type:
+      return AppTabNavi.router.getStateForAction(
+        NavigationActions.navigate({ routeName: TAB_NAVI.LOCAL.routeName }),
+        state,
+      );
+    default:
+      return AppTabNavi.router.getStateForAction(action, state);
+  }
+}
+export default class NaviReducer {
+  static StackNav = stackNav;
+  static TabNav = tabNav;
+}

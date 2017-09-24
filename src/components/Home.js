@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
   },
 });
 
+
 const Home = ({ buttonTitle, onButtonPress }) => (
   <View style={styles.container}>
     <Text> home screen </Text>

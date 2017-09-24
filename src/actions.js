@@ -26,23 +26,40 @@ const fetchSampleMD = url => ((dispatch) => {
     .then(rawText => dispatch(sampleMD.receive(url, rawText)));
 });
 
-export const NAVI = {
+export const STACK_NAVI = {
   HOME: { type: 'NAVI_HOME', routeName: 'Home' },
   TREE: { type: 'NAVI_TREE', routeName: 'Tree' },
 };
 
-const switchNavi = {
+export const TAB_NAVI = {
+  REMOTE: { type: 'NAVI_HOME_REMOTE', routeName: 'Remote' },
+  LOCAL: { type: 'NAVI_HOME_LOCAL', routeName: 'Local' },
+};
+
+const switchStackNavi = {
   home: () => ({
-    type: NAVI.HOME.type,
-    routeName: NAVI.HOME.routeName,
+    type: STACK_NAVI.HOME.type,
+    routeName: STACK_NAVI.HOME.routeName,
   }),
   tree: () => ({
-    type: NAVI.TREE.type,
-    routeName: NAVI.TREE.routeName,
+    type: STACK_NAVI.TREE.type,
+    routeName: STACK_NAVI.TREE.routeName,
+  }),
+};
+
+const switchTabNavi = {
+  remote: () => ({
+    type: TAB_NAVI.REMOTE.type,
+    routeName: TAB_NAVI.REMOTE.routeName,
+  }),
+  local: () => ({
+    type: TAB_NAVI.LOCAL.type,
+    routeName: TAB_NAVI.LOCAL.routeName,
   }),
 };
 
 export default class Actions {
     static fetchSampleMD = fetchSampleMD;
-    static switchNavi = switchNavi;
+    static switchStackNavi = switchStackNavi;
+    static switchTabNavi = switchTabNavi;
 }

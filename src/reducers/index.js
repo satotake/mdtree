@@ -4,7 +4,7 @@ import {
   SAMPLEMD,
 } from '../actions';
 
-import nav from './nav';
+import { tabNav, stackNav } from './nav';
 
 function sampleMDReducer(state = {}, action) {
   switch (action.type) {
@@ -28,7 +28,8 @@ function sampleMDReducer(state = {}, action) {
 
 const reducers = combineReducers({
   md: sampleMDReducer,
-  nav,
+  stackNav,
+  tabNav,
 });
 
 export default reducers;

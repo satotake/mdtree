@@ -14,7 +14,7 @@ import {
   Provider,
 } from 'react-redux';
 
-import Navi from './containers/Navi';
+import StackNavi from './navigations/StackNavi';
 import reducers from './reducers';
 
 const loggerMiddleware = createLogger();
@@ -27,7 +27,7 @@ const store = createStore(reducers, applyMiddleware(
 
 const AppRoot = () => (
   <Provider store={store}>
-    <Navi />
+    <StackNavi />
   </Provider>
 );
 

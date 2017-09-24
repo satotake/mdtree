@@ -10,13 +10,15 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onButtonPress: () => dispatch(Actions.switchNavi.home()),
+  onButtonPress: () => {
+    dispatch(Actions.switchStackNavi.home());
+  },
 });
 
-const TreeScreen = connect(mapStateToProps, mapDispatchToProps)(Tree);
+const TreeContainer = connect(mapStateToProps, mapDispatchToProps)(Tree);
 
-TreeScreen.navigationOptions = {
+TreeContainer.navigationOptions = {
   title: 'Tree',
 };
 
-export default TreeScreen;
+export default TreeContainer;

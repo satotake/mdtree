@@ -3,30 +3,30 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addNavigationHelpers, StackNavigator } from 'react-navigation';
 
-import HomeScreen from './HomeScreen';
-import TreeScreen from './TreeScreen';
+import TabNavi from './TabNavi';
+import TreeContainer from '../containers/TreeContainer';
 
 export const AppNavigator = StackNavigator({
-  Home: { screen: HomeScreen },
-  Tree: { screen: TreeScreen },
+  Home: { screen: TabNavi },
+  Tree: { screen: TreeContainer },
 });
 
-const Navi = ({ dispatch, nav }) => (
+const StackNavi = ({ dispatch, stackNav }) => (
   <AppNavigator
-    navigation={addNavigationHelpers({ dispatch, state: nav })}
+    navigation={addNavigationHelpers({ dispatch, state: stackNav })}
   />
 );
 
-Navi.propTypes = {
+StackNavi.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  nav: PropTypes.shape({
+  stackNav: PropTypes.shape({
     index: PropTypes.number,
     routes: PropTypes.array,
   }).isRequired,
 };
 
 const mapStateToProps = state => ({
-  nav: state.nav,
+  stackNav: state.stackNav,
 });
 
-export default connect(mapStateToProps)(Navi);
+export default connect(mapStateToProps)(StackNavi);
