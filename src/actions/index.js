@@ -1,5 +1,5 @@
 import { markdown } from 'markdown';
-import Helpers from './helpers';
+import Helpers from '../helpers';
 
 export const SAMPLEMD = {
   REQUEST: 'SAMPLEMD_REQUEST',
