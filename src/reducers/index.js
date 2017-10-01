@@ -6,7 +6,7 @@ import {
 
 import { tabNav, stackNav } from './nav';
 
-function sampleMDReducer(state = {}, action) {
+export function sampleMDReducer(state = {}, action) {
   switch (action.type) {
     case SAMPLEMD.REQUEST:
       return Object.assign({}, state, {
